@@ -21,6 +21,8 @@
 #define KO_WF_DATE_INFO_SYNC_SP 5
 #define KO_WF_MANUAL_AC_ON_RQ_SP 4
 #define KO_WF_H_LAMP_CONT_SP 10
+#define KO_WF_R_HORN_CONT_SP 12
+#define KO_WF_D_LOCK_RQ_SP 13
 #define KO_WF_P_LAMP_CONT_SP 11
 #define KO_WF_BATT_LEVEL_INFO_REP_EVR 29
 #define KO_WF_DATE_INFO_SYNC_EVR 18
@@ -104,6 +106,8 @@ phevCtx_t * phev_registerDevice(phevSettings_t settings);
 void phev_updateRegister(uint8_t reg, uint8_t * data, size_t length);
 void phev_exit(phevCtx_t * ctx);
 void phev_headLights(phevCtx_t * ctx, bool on, phevCallBack_t callback);
+void phev_horn(phevCtx_t * ctx, bool on, phevCallBack_t callback);
+void phev_lock(phevCtx_t * ctx, bool on, phevCallBack_t callback);
 void phev_parkingLights(phevCtx_t * ctx, bool on, phevCallBack_t callback);
 void phev_airCon(phevCtx_t * ctx, bool on, phevCallBack_t callback);
 void phev_airConMode(phevCtx_t * ctx, phevAirConMode_t mode, phevAirConTime_t time,phevCallBack_t callback);

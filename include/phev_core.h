@@ -3,8 +3,8 @@
 #ifndef _GNU_SOURCE
 #define _GNU_SOURCE 1
 #endif
-#ifndef LOG_LEVEL 
-#define LOG_LEVEL LOG_NONE
+#ifndef LOG_LEVEL
+#define LOG_LEVEL LOG_DEBUG
 #endif
 
 #include <stddef.h>
@@ -38,6 +38,7 @@
 
 #define KO_WF_CONNECT_INFO_GS_SP 1
 #define KO_WF_AC_SCH_SP 2
+#define KO_WF_AC_SCH_SP_MY19 27
 #define KO_WF_REG_DISP_SP 16
 #define KO_WF_INIT_RQ_SP 21
 #define KO_WF_EV_UPDATE_SP 6
@@ -45,7 +46,8 @@
 #define KO_WF_MANUAL_AC_ON_RQ_SP 4
 #define KO_WF_H_LAMP_CONT_SP 10
 #define KO_WF_P_LAMP_CONT_SP 11
-
+#define KO_WF_R_HORN_CONT_SP 12
+#define KO_WF_D_LOCK_RQ_SP 13
 #define KO_WF_VIN_INFO_EVR 21
 #define KO_WF_REGISTRATION_EVR 42
 #define KO_WF_START_AA_EVR 170
@@ -58,12 +60,12 @@
 #define KO_WF_TM_AC_STAT_INFO_REP_EVR 28
 /*
 enum commands_t  {
-    PING_SEND_CMD = 0xf9, 
-    PING_RESP_CMD = 0x9f, 
-    START_SEND = 0xf2, 
-    START_RESP = 0x2f, 
+    PING_SEND_CMD = 0xf9,
+    PING_RESP_CMD = 0x9f,
+    START_SEND = 0xf2,
+    START_RESP = 0x2f,
     SEND_CMD = 0xf6,
-    RESP_CMD = 0x6f 
+    RESP_CMD = 0x6f
 };
 */
 
@@ -118,7 +120,7 @@ phevMessage_t *phev_core_pingMessage(const uint8_t number);
 
 phevMessage_t *phev_core_responseHandler(phevMessage_t * message);
 
-uint8_t phev_core_checksum(const uint8_t * data); 
+uint8_t phev_core_checksum(const uint8_t * data);
 
 message_t * phev_core_convertToMessage(phevMessage_t * message);
 
